@@ -1,7 +1,6 @@
 package com.delmas.gestiondestock.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +13,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "roles")
 public class Roles extends  AbstractEntity{
-    private String nom;
+
+    @Column(name = "roleName")
+    private String roleName;
+
+    @ManyToOne
+    @JoinColumn(name = "idUtilisateur")
+    private Utilisateur utilisateur;
+
 }
 

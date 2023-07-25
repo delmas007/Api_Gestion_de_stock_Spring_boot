@@ -1,9 +1,6 @@
 package com.delmas.gestiondestock.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,5 +19,9 @@ public class LigneVente extends AbstractEntity{
     @JoinColumn(name = "idVente")
     private  Ventes ventes;
 
+    @Column(name = "quantite")
     private BigDecimal quantite;
+
+    @Column(name = "prixUnitaire")
+    private BigDecimal prixUnitaire;
 }

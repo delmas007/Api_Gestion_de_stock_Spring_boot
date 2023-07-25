@@ -7,11 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class Adresse {
+public class Adresse implements Serializable {
     @Column(name = "adresse1")
     private String adresse1;
 

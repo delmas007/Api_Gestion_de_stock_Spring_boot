@@ -1,14 +1,14 @@
 package com.delmas.gestiondestock.Model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.Instant;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -18,7 +18,16 @@ import lombok.NoArgsConstructor;
 @Table(name = "mvtstk")
 public class MvtStk extends AbstractEntity{
 
+    @Column(name = "dataMvt")
+    private Instant dataMvt;
+
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
     @ManyToOne
     @JoinColumn(name = "idArticle")
-    private  Article article;
+    private Article article;
+
+    @Column(name = "typeMvtStk")
+    private TypeMvtStk typeMvtStk;
 }
