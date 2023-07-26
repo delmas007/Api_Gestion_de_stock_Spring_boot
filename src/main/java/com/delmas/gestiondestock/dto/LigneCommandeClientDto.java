@@ -2,6 +2,8 @@ package com.delmas.gestiondestock.dto;
 
 import com.delmas.gestiondestock.Model.Article;
 import com.delmas.gestiondestock.Model.CommandeClient;
+import com.delmas.gestiondestock.Model.Fournisseur;
+import com.delmas.gestiondestock.Model.LigneCommandeClient;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -23,4 +25,27 @@ public class LigneCommandeClientDto {
     private BigDecimal quantite;
 
     private BigDecimal prixUnitaire;
+
+    public static LigneCommandeClientDto fromEntity(LigneCommandeClient ligneCommandeClient){
+        if(ligneCommandeClient == null){
+            return null;
+        }
+
+        return  LigneCommandeClientDto.builder()
+                .id(ligneCommandeClient.getId())
+                .quantite(ligneCommandeClient.getQuantite())
+                .prixUnitaire(ligneCommandeClient.getPrixUnitaire())
+                .build();
+    }
+
+    public static LigneCommandeClient toEntity(LigneCommandeClientDto ligneCommandeClientDto){
+        if(ligneCommandeClientDto == null){
+            return null;
+        }
+
+        return  LigneCommandeClient.builder()
+                .quantite(ligneCommandeClientDto.getQuantite())
+                .prixUnitaire(ligneCommandeClientDto.getPrixUnitaire())
+                .build();
+    }
 }

@@ -27,7 +27,7 @@ public class ClientDto {
 
     private List<CommandeClientDto> commandeClients;
 
-    public ClientDto fromEntity(Client client){
+    public static ClientDto fromEntity(Client client){
         if(client == null){
             return null;
         }
@@ -39,11 +39,10 @@ public class ClientDto {
                 .email(client.getEmail())
                 .photo(client.getPhoto())
                 .numTel(client.getNumTel())
-//                .adresse(client.getAdresse())
                 .build();
     }
 
-    public Client toEntity(ClientDto clientDto){
+    public static Client toEntity(ClientDto clientDto){
         if(clientDto == null){
             return null;
         }
@@ -54,7 +53,6 @@ public class ClientDto {
                 .email(clientDto.getEmail())
                 .photo(clientDto.getPhoto())
                 .numTel(clientDto.getNumTel())
-//                .adresse(clientDto.getAdresse())
                 .build();
     }
 }

@@ -1,10 +1,6 @@
 package com.delmas.gestiondestock.dto;
 
-import com.delmas.gestiondestock.Model.Article;
-import com.delmas.gestiondestock.Model.CommandeFournisseur;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.delmas.gestiondestock.Model.LigneCommandeFournisseur;
 import lombok.Builder;
 import lombok.Data;
 
@@ -23,4 +19,26 @@ public class LigneCommandeFournisseurDto {
     private BigDecimal quantite;
 
     private BigDecimal prixUnitaire;
+
+    public static LigneCommandeFournisseurDto fromEntity(LigneCommandeFournisseur ligneCommandeFournisseur){
+        if(ligneCommandeFournisseur == null){
+            return null;
+        }
+
+        return  LigneCommandeFournisseurDto.builder()
+                .id(ligneCommandeFournisseur.getId())
+                .quantite(ligneCommandeFournisseur.getQuantite())
+                .prixUnitaire(ligneCommandeFournisseur.getPrixUnitaire())
+                .build();
+    }
+    public static LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto){
+        if(ligneCommandeFournisseurDto == null){
+            return null;
+        }
+
+        return  LigneCommandeFournisseur.builder()
+                .quantite(ligneCommandeFournisseurDto.getQuantite())
+                .prixUnitaire(ligneCommandeFournisseurDto.getPrixUnitaire())
+                .build();
+    }
 }

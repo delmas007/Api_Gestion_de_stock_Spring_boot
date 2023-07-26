@@ -16,8 +16,8 @@ import java.time.Instant;
 @Table(name = "mvtstk")
 public class MvtStk extends AbstractEntity{
 
-    @Column(name = "dataMvt")
-    private Instant dataMvt;
+    @Column(name = "dateMvt")
+    private Instant dateMvt;
 
     @Column(name = "quantite")
     private BigDecimal quantite;

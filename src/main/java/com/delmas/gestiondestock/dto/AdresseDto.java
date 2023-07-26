@@ -22,13 +22,12 @@ public class AdresseDto {
 
     private String codePostale;
 
-    public AdresseDto fromEntity(Adresse adresse){
+    public static AdresseDto fromEntity(Adresse adresse){
         if(adresse == null){
             return null;
         }
 
         return  AdresseDto.builder()
-                .id(adresse.getId())
                 .adresse1(adresse.getAdresse1())
                 .adresse2(adresse.getAdresse2())
                 .pays(adresse.getPays())
@@ -37,7 +36,7 @@ public class AdresseDto {
                 .build();
     }
 
-    public Adresse toEntity(AdresseDto adresseDto){
+    public static Adresse toEntity(AdresseDto adresseDto){
         if(adresseDto == null){
             return null;
         }
