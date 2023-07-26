@@ -1,6 +1,7 @@
 package com.delmas.gestiondestock.dto;
 
 import com.delmas.gestiondestock.Model.Client;
+import com.delmas.gestiondestock.Model.CommandeClient;
 import com.delmas.gestiondestock.Model.LigneCommandeClient;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
@@ -16,6 +17,8 @@ import java.util.List;
 @Builder
 public class CommandeClientDto {
 
+    private Integer id;
+
     private  String code;
 
     private Instant DateCommande;
@@ -23,4 +26,29 @@ public class CommandeClientDto {
     private ClientDto client;
 
     private List<LigneCommandeClientDto> ligneCommandeClients;
+
+    public CommandeClientDto fromEntity(CommandeClient commandeClient){
+        if(commandeClient == null){
+            return null;
+        }
+
+        return  CommandeClientDto.builder()
+                .id(commandeClient.getId())
+                .code(commandeClient.getCode())
+                .DateCommande(commandeClient.getDateCommande())
+//                .client(commandeClient.getClient())
+                .build();
+    }
+
+    public CommandeClient fromEntity(CommandeClientDto commandeClientDto){
+        if(commandeClientDto == null){
+            return null;
+        }
+
+        return  CommandeClient.builder()
+                .code(commandeClientDto.getCode())
+                .DateCommande(commandeClientDto.getDateCommande())
+//                .client(commandeClient.getClient())
+                .build();
+    }
 }

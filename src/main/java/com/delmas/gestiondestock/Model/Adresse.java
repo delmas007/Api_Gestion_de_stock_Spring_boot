@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class Adresse implements Serializable {
+public class Adresse extends AbstractEntity {
     @Column(name = "adresse1")
     private String adresse1;
 
