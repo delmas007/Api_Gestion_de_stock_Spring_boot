@@ -24,6 +24,9 @@ public class Utilisateur extends  AbstractEntity{
     @Column(name = "email")
     private String email;
 
+    @Column(name = "dateDeNaissance")
+    private String dateDeNaissance;
+
     @Embedded
     private Adresse adresse;
 

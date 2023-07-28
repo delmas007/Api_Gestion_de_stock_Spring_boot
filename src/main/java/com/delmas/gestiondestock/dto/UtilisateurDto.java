@@ -19,6 +19,8 @@ public class UtilisateurDto {
 
     private String email;
 
+    private String dateDeNaissance;
+
     private AdresseDto adresse;
 
     private String motDePasse;
@@ -38,6 +40,7 @@ public class UtilisateurDto {
                 .prenom(utilisateur.getPrenom())
                 .motDePasse(utilisateur.getMotDePasse())
                 .email(utilisateur.getEmail())
+                .dateDeNaissance(utilisateur.getDateDeNaissance())
                 .build();
     }
     public static Utilisateur toEntity(UtilisateurDto utilisateurDto){
@@ -50,6 +53,7 @@ public class UtilisateurDto {
                 .prenom(utilisateurDto.getPrenom())
                 .motDePasse(utilisateurDto.getMotDePasse())
                 .email(utilisateurDto.getEmail())
+                .dateDeNaissance(utilisateurDto.getDateDeNaissance())
                 .build();
     }
 }
