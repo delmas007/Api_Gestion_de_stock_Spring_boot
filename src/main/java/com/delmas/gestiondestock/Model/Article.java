@@ -20,6 +20,9 @@ public class Article extends AbstractEntity{
     @Column(name = "designation")
     private  String designation;
 
+    @Column(name = "idEntreprise")
+    private  Integer idEntreprise;
+
     @Column(name = "prixUnitaireHt")
     private BigDecimal prixUnitaireHt;
 
