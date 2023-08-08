@@ -23,6 +23,7 @@ public class RolesDto {
         return  RolesDto.builder()
                 .id(roles.getId())
                 .roleName(roles.getRoleName())
+                .utilisateur(UtilisateurDto.fromEntity(roles.getUtilisateur()))
                 .build();
     }
     public static Roles toEntity(RolesDto rolesDto){
@@ -32,6 +33,7 @@ public class RolesDto {
 
         return  Roles.builder()
                 .roleName(rolesDto.getRoleName())
+                .utilisateur(UtilisateurDto.toEntity(rolesDto.getUtilisateur()))
                 .build();
     }
 }

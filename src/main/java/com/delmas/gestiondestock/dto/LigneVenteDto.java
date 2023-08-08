@@ -26,6 +26,7 @@ public class LigneVenteDto {
                 .id(ligneVente.getId())
                 .quantite(ligneVente.getQuantite())
                 .prixUnitaire(ligneVente.getPrixUnitaire())
+                .ventes(VentesDto.fromEntity(ligneVente.getVentes()))
                 .build();
     }
 
@@ -37,6 +38,7 @@ public class LigneVenteDto {
         return  LigneVente.builder()
                 .quantite(ligneVenteDto.getQuantite())
                 .prixUnitaire(ligneVenteDto.getPrixUnitaire())
+                .ventes(VentesDto.toEntity(ligneVenteDto.getVentes()))
                 .build();
     }
 }

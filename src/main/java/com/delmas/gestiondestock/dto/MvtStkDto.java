@@ -37,6 +37,7 @@ public class MvtStkDto {
                 .quantite(mvtStk.getQuantite())
                 .dateMvt(mvtStk.getDateMvt())
                 .typeMvtStk(mvtStk.getTypeMvtStk())
+                .article(ArticleDto.fromEntity(mvtStk.getArticle()))
                 .build();
     }
     public static MvtStk toEntity(MvtStkDto mvtStkDto){
@@ -48,6 +49,7 @@ public class MvtStkDto {
                 .quantite(mvtStkDto.getQuantite())
                 .dateMvt(mvtStkDto.getDateMvt())
                 .typeMvtStk(mvtStkDto.getTypeMvtStk())
+                .article(ArticleDto.toEntity(mvtStkDto.getArticle()))
                 .build();
     }
 }
