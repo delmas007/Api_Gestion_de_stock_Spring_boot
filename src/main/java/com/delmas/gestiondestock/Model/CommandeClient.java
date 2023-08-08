@@ -25,6 +25,10 @@ public class CommandeClient extends AbstractEntity{
     @Column(name = "idEntreprise")
     private  Integer idEntreprise;
 
+    @Column(name = "etatCommande")
+    @Enumerated(EnumType.STRING)
+    private EtatCommande etatCommande;
+
     @ManyToOne
     @JoinColumn(name = "idClient")
     private  Client client;

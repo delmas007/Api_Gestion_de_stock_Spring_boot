@@ -1,9 +1,7 @@
 package com.delmas.gestiondestock.dto;
 
-import com.delmas.gestiondestock.Model.Article;
-import com.delmas.gestiondestock.Model.LigneVente;
-import com.delmas.gestiondestock.Model.MvtStk;
-import com.delmas.gestiondestock.Model.TypeMvtStk;
+import com.delmas.gestiondestock.Model.*;
+import jakarta.persistence.AssociationOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -23,9 +21,13 @@ public class MvtStkDto {
 
     private BigDecimal quantite;
 
+    private Integer idEntreprise;
+
     private ArticleDto article;
 
     private TypeMvtStk typeMvtStk;
+
+    private  SourceMvtStk sourceMvtStk;
 
     public static MvtStkDto fromEntity(MvtStk mvtStk){
         if(mvtStk == null){
@@ -37,7 +39,9 @@ public class MvtStkDto {
                 .quantite(mvtStk.getQuantite())
                 .dateMvt(mvtStk.getDateMvt())
                 .typeMvtStk(mvtStk.getTypeMvtStk())
+                .sourceMvtStk(mvtStk.getSourceMvtStk())
                 .article(ArticleDto.fromEntity(mvtStk.getArticle()))
+                .idEntreprise(mvtStk.getIdEntreprise())
                 .build();
     }
     public static MvtStk toEntity(MvtStkDto mvtStkDto){
@@ -50,6 +54,10 @@ public class MvtStkDto {
                 .dateMvt(mvtStkDto.getDateMvt())
                 .typeMvtStk(mvtStkDto.getTypeMvtStk())
                 .article(ArticleDto.toEntity(mvtStkDto.getArticle()))
+                .sourceMvtStk(mvtStkDto.getSourceMvtStk())
+                .idEntreprise(mvtStkDto.getIdEntreprise())
                 .build();
     }
+
+
 }

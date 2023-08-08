@@ -1,5 +1,5 @@
 package com.delmas.gestiondestock.Model;
 
 public enum TypeMvtStk {
-    ENTREE, SORTIE
+    ENTREE, CORRECTION_POS, SORTIE,CORRECTION_NEG
 }
