@@ -40,6 +40,7 @@ public class ArticleDto {
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
                 .tauxTva(article.getTauxTva())
                 .photo(article.getPhoto())
+                .category(CategoryDto.fromEntity(article.getCategory()))
                 .build();
     }
 
@@ -55,6 +56,7 @@ public class ArticleDto {
                 .prixUnitaireTtc(articleDto.getPrixUnitaireTtc())
                 .tauxTva(articleDto.getTauxTva())
                 .photo(articleDto.getPhoto())
+                .category(CategoryDto.toEntity(articleDto.getCategory()))
                 .build();
     }
 }

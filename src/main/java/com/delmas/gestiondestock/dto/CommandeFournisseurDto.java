@@ -37,6 +37,7 @@ public class CommandeFournisseurDto {
                 .id(commandeFournisseur.getId())
                 .code(commandeFournisseur.getCode())
                 .dateCommande(commandeFournisseur.getDateCommande())
+                .fournisseur(FournisseurDto.fromEntity(commandeFournisseur.getFournisseur()))
                 .build();
     }
 
@@ -48,6 +49,7 @@ public class CommandeFournisseurDto {
         return  CommandeFournisseur.builder()
                 .code(commandeFournisseurDto.getCode())
                 .dateCommande(commandeFournisseurDto.getDateCommande())
+                .fournisseur(FournisseurDto.toEntity(commandeFournisseurDto.getFournisseur()))
                 .build();
     }
 }
