@@ -25,6 +25,8 @@ public class UtilisateurDto {
 
     private String motDePasse;
 
+    private String photo;
+
     private EntrepriseDto entreprise;
 
     private List<RolesDto> roles;

@@ -17,6 +17,10 @@ public class EntrepriseDto {
 
     private AdresseDto adresse;
 
+    private String codeFiscal;
+
+    private String moteDePasse;
+
     private String photo;
 
     private String email;
@@ -37,6 +41,8 @@ public class EntrepriseDto {
         return  EntrepriseDto.builder()
                 .id(entreprise.getId())
                 .nom(entreprise.getNom())
+                .moteDePasse(entreprise.getMoteDePasse())
+                .codeFiscal(entreprise.getCodeFiscal())
                 .photo(entreprise.getPhoto())
                 .email(entreprise.getEmail())
                 .numTel(entreprise.getNumTel())
@@ -53,6 +59,8 @@ public class EntrepriseDto {
         return  Entreprise.builder()
                 .nom(entrepriseDto.getNom())
                 .photo(entrepriseDto.getPhoto())
+                .moteDePasse(entrepriseDto.getMoteDePasse())
+                .codeFiscal(entrepriseDto.getCodeFiscal())
                 .email(entrepriseDto.getEmail())
                 .numTel(entrepriseDto.getNumTel())
                 .description(entrepriseDto.getDescription())
