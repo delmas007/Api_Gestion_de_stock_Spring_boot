@@ -19,6 +19,8 @@ public class LigneCommandeFournisseur extends AbstractEntity {
     @JoinColumn(name = "idArticle")
     private  Article article;
 
+
+
     @ManyToOne
     @JoinColumn(name = "idCommandeFournisseur")
     private CommandeFournisseur commandeFournisseurs;
@@ -31,4 +33,7 @@ public class LigneCommandeFournisseur extends AbstractEntity {
 
     @Column(name = "idEntreprise")
     private  Integer idEntreprise;
+
+    public void setCommandeFournisseur(CommandeFournisseur savedCmdFrs) {
+    }
 }

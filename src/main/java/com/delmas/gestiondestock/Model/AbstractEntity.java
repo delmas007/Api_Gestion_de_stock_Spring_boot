@@ -34,4 +34,5 @@ public class AbstractEntity implements Serializable {
     @JsonIgnore
     private Instant lastModifiedDate;
 
+
 }

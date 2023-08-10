@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.Instant;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,6 +20,9 @@ public class VentesDto {
     private Instant dateVente;
 
     private String commentaire;
+
+    private List<LigneVenteDto> ligneVentes;
+    private Integer idEntreprise;
 
     public static VentesDto fromEntity(Ventes ventes){
         if(ventes == null){
@@ -43,4 +47,6 @@ public class VentesDto {
                 .commentaire(ventesDto.getCommentaire())
                 .build();
     }
+
+
 }

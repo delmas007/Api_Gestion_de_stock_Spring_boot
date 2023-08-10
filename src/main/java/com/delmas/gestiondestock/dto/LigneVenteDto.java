@@ -1,6 +1,7 @@
 package com.delmas.gestiondestock.dto;
 
 import com.delmas.gestiondestock.Model.LigneVente;
+import com.fasterxml.jackson.annotation.JacksonInject;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,6 +18,10 @@ public class LigneVenteDto {
 
     private BigDecimal prixUnitaire;
 
+    private Integer idEntreprise;
+
+    private ArticleDto article;
+
     public static LigneVenteDto fromEntity(LigneVente ligneVente){
         if(ligneVente == null){
             return null;
@@ -27,6 +32,8 @@ public class LigneVenteDto {
                 .quantite(ligneVente.getQuantite())
                 .prixUnitaire(ligneVente.getPrixUnitaire())
                 .ventes(VentesDto.fromEntity(ligneVente.getVentes()))
+                .article(ArticleDto.fromEntity(ligneVente.getArticle()))
+                .idEntreprise(ligneVente.getIdEntreprise())
                 .build();
     }
 
@@ -39,6 +46,9 @@ public class LigneVenteDto {
                 .quantite(ligneVenteDto.getQuantite())
                 .prixUnitaire(ligneVenteDto.getPrixUnitaire())
                 .ventes(VentesDto.toEntity(ligneVenteDto.getVentes()))
+                .article(ArticleDto.toEntity(ligneVenteDto.getArticle()))
+                .idEntreprise(ligneVenteDto.getIdEntreprise())
                 .build();
     }
+
 }
