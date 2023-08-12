@@ -29,7 +29,7 @@ public class LigneCommandeFournisseurDto {
                 .id(ligneCommandeFournisseur.getId())
                 .quantite(ligneCommandeFournisseur.getQuantite())
                 .prixUnitaire(ligneCommandeFournisseur.getPrixUnitaire())
-                .commandeFournisseurs(CommandeFournisseurDto.fromEntity(ligneCommandeFournisseur.getCommandeFournisseurs()))
+                .commandeFournisseurs(CommandeFournisseurDto.fromEntity(ligneCommandeFournisseur.getCommandeFournisseur()))
                 .build();
     }
     public static LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto){
@@ -40,7 +40,7 @@ public class LigneCommandeFournisseurDto {
         return  LigneCommandeFournisseur.builder()
                 .quantite(ligneCommandeFournisseurDto.getQuantite())
                 .prixUnitaire(ligneCommandeFournisseurDto.getPrixUnitaire())
-                .commandeFournisseurs(CommandeFournisseurDto.toEntity(ligneCommandeFournisseurDto.getCommandeFournisseurs()))
+                .commandeFournisseur(CommandeFournisseurDto.toEntity(ligneCommandeFournisseurDto.getCommandeFournisseurs()))
                 .build();
     }
 }

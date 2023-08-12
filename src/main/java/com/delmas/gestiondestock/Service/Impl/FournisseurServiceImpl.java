@@ -1,5 +1,6 @@
 package com.delmas.gestiondestock.Service.Impl;
 
+import com.delmas.gestiondestock.Model.CommandeFournisseur;
 import com.delmas.gestiondestock.Model.Fournisseur;
 import com.delmas.gestiondestock.dto.FournisseurDto;
 import com.delmas.gestiondestock.Exception.EntityNotFoundException;
@@ -74,7 +75,7 @@ public class FournisseurServiceImpl implements FournisseurService {
       log.error("Fournisseur ID is null");
       return;
     }
-    List<FournisseurDto> commandeFournisseur = commandeFournisseurRepository.findAllByFournisseurId(id);
+    List<CommandeFournisseur> commandeFournisseur = commandeFournisseurRepository.findAllByFournisseurId(id);
     if (!commandeFournisseur.isEmpty()) {
       throw new InvalidOperationException("Impossible de supprimer un fournisseur qui a deja des commandes",
           ErrorCodes.FOURNISSEUR_ALREADY_IN_USE);

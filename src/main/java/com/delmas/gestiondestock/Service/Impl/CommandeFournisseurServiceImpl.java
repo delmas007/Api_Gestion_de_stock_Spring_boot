@@ -13,7 +13,6 @@ import com.delmas.gestiondestock.Model.Article;
 import com.delmas.gestiondestock.Model.CommandeFournisseur;
 import com.delmas.gestiondestock.Model.EtatCommande;
 import com.delmas.gestiondestock.Model.Fournisseur;
-import com.delmas.gestiondestock.Model.LigneCommandeClient;
 import com.delmas.gestiondestock.Model.LigneCommandeFournisseur;
 import com.delmas.gestiondestock.Model.SourceMvtStk;
 import com.delmas.gestiondestock.Model.TypeMvtStk;
@@ -41,6 +40,7 @@ import org.springframework.util.StringUtils;
 public class CommandeFournisseurServiceImpl implements CommandeFournisseurService {
 
   private CommandeFournisseurRepository commandeFournisseurRepository;
+  @Autowired
   private LigneCommandeFournisseurRepository ligneCommandeFournisseurRepository;
   private FournisseurRepository fournisseurRepository;
   private ArticleRepository articleRepository;
