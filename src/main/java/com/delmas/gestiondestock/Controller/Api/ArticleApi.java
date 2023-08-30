@@ -19,7 +19,7 @@ public interface ArticleApi {
     @ApiOperation(value = "Enregistrer un article",notes = "Cette methode permet d'enregistrer ou modifier un ",response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "L'objet article cree/modifier"),
-            @ApiResponse(code = 400,message = "L'objet article n'est pas valide")
+            @ApiResponse(code = 404,message = "L'objet article n'est pas valide")
     })
     ArticleDto save(@RequestBody ArticleDto dto);
 
@@ -41,7 +41,7 @@ public interface ArticleApi {
 
     @GetMapping(value = APP_ROOT+"/article/all",produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Renvoie la liste des articles",notes = "Cette methode permet de renvoyer la liste des articles qui existent" +
-            "dans la BDD ",response = ArticleDto.class)
+            "dans la BDD ",responseContainer = "List<ArticleDto.class>")
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "la liste des articles / une liste vide")
     })
