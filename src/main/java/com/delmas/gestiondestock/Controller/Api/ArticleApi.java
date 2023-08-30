@@ -51,7 +51,7 @@ public interface ArticleApi {
     @ApiOperation(value = "Supprimer un article",notes = "Cette methode permet de supprimer un article par ID" +
             "dans la BDD ",response = ArticleDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200,message = "l'article a ete trouver dans la BDD")
+            @ApiResponse(code = 200,message = "l'article a ete supprimer")
     })
     Void delete(@PathVariable("idArticle") Integer id);
 
