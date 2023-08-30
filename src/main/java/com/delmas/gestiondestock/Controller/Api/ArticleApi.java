@@ -40,13 +40,19 @@ public interface ArticleApi {
     ArticleDto findByCodeArticle(@PathVariable("codeArticle")String codeArticle);
 
     @GetMapping(value = APP_ROOT+"/article/all",produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Renvoie la liste des articles",notes = "Cette methode permet de chercher un article par son CODE ",response = ArticleDto.class)
+    @ApiOperation(value = "Renvoie la liste des articles",notes = "Cette methode permet de renvoyer la liste des articles qui existent" +
+            "dans la BDD ",response = ArticleDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200,message = "L'article a ete trouve dans la BDD")
+            @ApiResponse(code = 200,message = "la liste des articles / une liste vide")
     })
     List<ArticleDto> findAll();
 
     @DeleteMapping(value = APP_ROOT+"/article/delete/{idArticle}")
+    @ApiOperation(value = "Supprimer un article",notes = "Cette methode permet de supprimer un article par ID" +
+            "dans la BDD ",response = ArticleDto.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200,message = "l'article a ete trouver dans la BDD")
+    })
     Void delete(@PathVariable("idArticle") Integer id);
 
 }
