@@ -1,8 +1,8 @@
 package com.delmas.gestiondestock.Config;
 
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -18,6 +18,7 @@ import static com.delmas.gestiondestock.Utils.Contants.APP_ROOT;
 //activer swagger2
 public class SwaggerConfiguration {
 
+    @Bean // Annotation nécessaire pour que Spring détecte et initialise ce bean
     public Docket api(){
         return  new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(
@@ -28,8 +29,8 @@ public class SwaggerConfiguration {
                 )
                 .groupName("REST API V1")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.delmas.gestiondestock"))
-                .paths(PathSelectors.ant(APP_ROOT + "/**"))
+                .apis(RequestHandlerSelectors.basePackage("com.delmas.gestiondestock.Controller"))
+                .paths(PathSelectors.ant(APP_ROOT+"/**"))
                 .build();
     }
 }
