@@ -8,14 +8,11 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static com.delmas.gestiondestock.Utils.Contants.APP_ROOT;
 
 @Configuration
 //dire c'est une configuration et lancement au demarrage
-@EnableSwagger2
-//activer swagger2
 public class SwaggerConfiguration {
 
     @Bean // Annotation nécessaire pour que Spring détecte et initialise ce bean
@@ -33,4 +30,5 @@ public class SwaggerConfiguration {
                 .paths(PathSelectors.ant(APP_ROOT+"/**"))
                 .build();
     }
+
 }
