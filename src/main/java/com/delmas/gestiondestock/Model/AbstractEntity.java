@@ -1,6 +1,7 @@
 package com.delmas.gestiondestock.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.models.auth.In;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -23,16 +24,24 @@ public class AbstractEntity implements Serializable {
     @GeneratedValue
     private Integer id;
 
-    @CreatedDate
-    @Column(name = "creationDate", nullable = false)
-//    ignorer ces attribut dans l'api car c'est automatique
-    @JsonIgnore
-    private Instant creationDate;
+//    @CreatedDate
+    @Column(name = "creationDate", nullable = true)
+    private Instant creationDatee;
 
-    @LastModifiedDate
+//    @LastModifiedDate
     @Column(name = "lastUpdateDate")
-    @JsonIgnore
-    private Instant lastModifiedDate;
+    private Instant lastModifiedDatee;
+
+    @PrePersist
+//    avant enregistrement
+    void  prePersist(){
+        creationDatee = Instant.now();
+    }
+    @PreUpdate
+//    avant maj
+    void preUpdate(){
+        lastModifiedDatee = Instant.now();
+    }
 
 
 }

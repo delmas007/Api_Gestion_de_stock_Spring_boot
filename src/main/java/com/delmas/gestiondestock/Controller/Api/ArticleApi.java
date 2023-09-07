@@ -23,7 +23,7 @@ public interface ArticleApi {
     })
     ArticleDto save(@RequestBody ArticleDto dto);
 
-    @GetMapping(value = APP_ROOT+"/article/{idArticle}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = APP_ROOT+"/article/id/{idArticle}",produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Rechercher un article par ID",notes = "Cette methode permet de chercher un article par son ID ",response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "L'article a ete trouve dans la BDD"),
