@@ -38,6 +38,8 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
             .formLogin(withDefaults())
             .csrf(AbstractHttpConfigurer::disable);
     return http.build();
+
+
 }
 
     @Bean
