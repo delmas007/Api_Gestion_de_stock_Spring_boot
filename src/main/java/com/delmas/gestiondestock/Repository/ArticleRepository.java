@@ -13,6 +13,7 @@ public interface ArticleRepository extends JpaRepository<Article,Integer>{
 
     Optional<Article> findArticleByCodeArticle(String codeArticle);
 
+
     List<Article> findAllByCategoryId(Integer id);
 
 //      Effectuer du code Sql
